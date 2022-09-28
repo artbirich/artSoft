@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+  
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to see this page.</p>
+    {% endif %}
+  {% endif %}
+  
+  <body class="text-center">
+    <main class="form-signin w-100 m-auto">
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="form-floating">
+          <p class="h3 mb-3 fw-normal">Please sign in</p>
+          <div class="container p-1">
+              <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+              </tr>
+            </div>
+          </div>
+          <div class="container p-4">
+              <tr>
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+              </tr>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-secondary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .45rem; --bs-btn-font-size: .95rem;">Login</button>
+        </div>
+      </form>
+    </main>
+  </body>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+</head>
+</head>
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+            <span class="fs-4 text-muted" style="margin: 0px 0px 0px 16px;">artSoft</span>
+        </a>
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <a class="me-3 py-2 text-muted text-decoration-none" href="{% url 'home' %}">Home</a>
+            <a class="me-3 py-2 text-muted text-decoration-none" href="{% url 'about'%}">About</a>
+            <a class="me-3 py-2 text-muted text-decoration-none" href="{% url 'comment'%}">Comment</a>
+            {% if user.is_authenticated %}
+                <a class="me-3 py-2 text-muted text-decoration-none" href="{% url 'logout' %}?next{{ request.path }}">Sign out</a>
+            {% else %}
+                <a class="me-3 py-2 text-muted text-decoration-none" href="{% url 'login' %}?next{{ request.path }}">Sign in</a>
+            {% endif %}
+        </nav>
+    </div>
+    <div style="margin: 1rem">
+        <h2 class="text-muted" style="display: flex; justify-content: center; align-content: center;">{% block header_page %}{% endblock %}</h2>
+        {% block content %}{% endblock %}
+    </div>
+    <div>
+        <footer class="py-3 my-4">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="{% url 'about'%}" class="nav-link px-2 text-muted">About</a></li>
+                <li class="nav-item"><a href="{% url 'comment'%}" class="nav-link px-2 text-muted">Comment</a></li>
+            </ul>
+            <p class="text-center text-muted">© 2022 artSoft Technologies, Inc. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

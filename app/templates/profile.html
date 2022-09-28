@@ -1,0 +1,58 @@
+{% extends 'base.html'%}
+
+{% block title %}
+    User account 
+{% endblock %}
+
+{% block header_page %}
+    User account 
+{% endblock %}
+
+{% block content %}
+
+<div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom">Custom cards</h2>
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-1.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">American Express</h3>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <button type="submit" class="btn btn-outline-secondary">more</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">American Express</h3>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <button type="submit" class="btn btn-outline-secondary">more</button> 
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">American Express</h3>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <button type="submit" class="btn btn-outline-secondary">more</button> 
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
